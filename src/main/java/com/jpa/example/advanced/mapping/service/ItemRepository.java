@@ -1,4 +1,7 @@
 package com.jpa.example.advanced.mapping.service;
 
-public interface ItemRepository {
+import com.jpa.example.advanced.mapping.entity.Item;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ItemRepository extends JpaRepository<Item, Long> {
 }

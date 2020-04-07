@@ -1,4 +1,7 @@
 package com.jpa.example.advanced.mapping.service;
 
-public interface MemberRepository {
+import com.jpa.example.advanced.mapping.entity.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
 }

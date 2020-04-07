@@ -7,18 +7,20 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Entity(name = "ORDERS")
+@Entity(name = "orders")
 public class Order extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "member_id")
     private Member member;
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
     @OneToOne
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
     private Date orderDate;

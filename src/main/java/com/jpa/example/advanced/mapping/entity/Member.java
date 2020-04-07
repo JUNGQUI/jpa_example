@@ -6,11 +6,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Entity(name = "MEMBER")
+@Entity(name = "member")
 public class Member extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -18,7 +18,7 @@ public class Member extends BaseEntity {
     private String street;
     private String zipcode;
 
-    @OneToMany
+    @OneToMany(mappedBy = "member")
     private List<Order> orders;
 
 }

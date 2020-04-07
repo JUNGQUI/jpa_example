@@ -5,14 +5,14 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
-@Entity(name = "DELIVERY")
+@Entity(name = "delivery")
 public class Delivery extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "delivery")
     private Order order;
     private String city;
     private String street;

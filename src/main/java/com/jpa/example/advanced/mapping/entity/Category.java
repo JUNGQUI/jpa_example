@@ -8,22 +8,23 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Entity(name = "CATEGORY")
+@Entity(name = "category")
 public class Category extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
     @ManyToMany
-    @JoinTable(name = "CATEGORY_ITEM", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+    @JoinTable(name = "category_item", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
     @JsonManagedReference
     private List<Item> items;
 
     @JsonBackReference
     @ManyToOne
+    @JoinColumn(name = "parent_id")
     private Category parent;
 
     @JsonManagedReference

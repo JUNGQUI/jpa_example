@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Entity(name = "ALBUM")
+@Entity
 @DiscriminatorValue("A")
 public class Album extends Item {
     private String artist;
